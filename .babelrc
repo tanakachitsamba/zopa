@@ -1,0 +1,8 @@
+{
+  "presets": [
+    "next/babel", "flow"
+  ],
+  "plugins": [
+    ["styled-components", { "ssr": true, "displayName": true, "preprocess": false } ]
+  ]
+}
