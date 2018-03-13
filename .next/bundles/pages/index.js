@@ -2329,7 +2329,7 @@ module.exports = function shallowEqual(objA, objB, compare, compareContext) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return css; });
+/* unused harmony export css */
 /* unused harmony export keyframes */
 /* unused harmony export injectGlobal */
 /* unused harmony export ThemeProvider */
@@ -4069,7 +4069,7 @@ var keyframes = _keyframes(generateAlphabeticName, stringifyRules, css);
 var injectGlobal = _injectGlobal(stringifyRules, css);
 var styled = _styled(StyledComponent, constructWithOptions);
 
-/* harmony default export */ __webpack_exports__["b"] = (styled);
+/* unused harmony default export */ var _unused_webpack_default_export = (styled);
 
 
 /***/ }),
@@ -5805,34 +5805,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_inputform__ = __webpack_require__("./components/inputform.js");
 var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js';
 
-var _templateObject = _taggedTemplateLiteral(['\n    ', '\n  '], ['\n    ', '\n  ']);
-
 (function () {
   var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
 
   enterModule && enterModule(module);
 })();
 
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
-
-
-// media query mixin 
-var media = {
-  ipad: function ipad() {
-    return Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* css */])(['@media (max-width:1020px){', '}'], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* css */].apply(undefined, arguments));
-  }
-
-  // div component with css props for faster styling 
-};var Div = __WEBPACK_IMPORTED_MODULE_1_styled_components__["b" /* default */].div.withConfig({
-  displayName: 'pages__Div',
-  componentId: 'pj87p0-0'
-})(['', ''], media.ipad(_templateObject, function (_ref) {
-  var ipad = _ref.ipad;
-  return Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* css */])(['', ''], ipad);
-}));
 
 var _default = function _default() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -5840,13 +5821,13 @@ var _default = function _default() {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 7
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 8
       }
     })
   );
@@ -5864,8 +5845,6 @@ var _default = function _default() {
     return;
   }
 
-  reactHotLoader.register(media, 'media', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
-  reactHotLoader.register(Div, 'Div', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
   reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
   leaveModule(module);
 })();

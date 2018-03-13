@@ -218,28 +218,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_inputform__ = __webpack_require__("./components/inputform.js");
 var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js';
 
-var _templateObject = _taggedTemplateLiteral(['\n    ', '\n  '], ['\n    ', '\n  ']);
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
-
-
-
-// media query mixin 
-var media = {
-  ipad: function ipad() {
-    return Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["css"])(['@media (max-width:1020px){', '}'], __WEBPACK_IMPORTED_MODULE_1_styled_components__["css"].apply(undefined, arguments));
-  }
-
-  // div component with css props for faster styling 
-};var Div = __WEBPACK_IMPORTED_MODULE_1_styled_components___default.a.div.withConfig({
-  displayName: 'pages__Div',
-  componentId: 'pj87p0-0'
-})(['', ''], media.ipad(_templateObject, function (_ref) {
-  var ipad = _ref.ipad;
-  return Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["css"])(['', ''], ipad);
-}));
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -247,13 +227,13 @@ var media = {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 7
       }
     },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 8
       }
     })
   );
