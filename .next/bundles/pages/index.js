@@ -4,6 +4,171 @@ module.exports =
           var comp = 
       webpackJsonp([4],{
 
+/***/ "./components/inputform.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+(function () {
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var InputForm = function (_React$Component) {
+  _inherits(InputForm, _React$Component);
+
+  function InputForm(props) {
+    _classCallCheck(this, InputForm);
+
+    var _this = _possibleConstructorReturn(this, (InputForm.__proto__ || Object.getPrototypeOf(InputForm)).call(this, props));
+
+    _this.handleInput = function (event) {
+      return _this.setState(_defineProperty({}, event.target.name, event.target.value));
+    };
+
+    _this.handleSubmit = function (event) {
+      event.preventDefault();
+    };
+
+    _this.state = {
+      name: '',
+      email: '',
+      amount: 0
+    };
+    return _this;
+  }
+
+  _createClass(InputForm, [{
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+        'form',
+        { onSubmit: this.handleSubmit, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 31
+          }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, {
+          name: 'name',
+          type: 'text',
+          label: 'Name',
+          value: this.state.name,
+          onChange: this.handleInput,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 32
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, {
+          name: 'email',
+          type: 'email',
+          label: 'Email',
+          value: this.state.email,
+          onChange: this.handleInput,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 39
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, {
+          name: 'amount',
+          type: 'number',
+          label: 'Amount',
+          value: this.state.amount,
+          onChange: this.handleInput,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 46
+          }
+        }),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', { type: 'submit', value: 'Submit', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53
+          }
+        })
+      );
+    }
+  }, {
+    key: '__reactstandin__regenerateByEval',
+    value: function __reactstandin__regenerateByEval(key, code) {
+      this[key] = eval(code);
+    }
+  }]);
+
+  return InputForm;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+var _default = InputForm;
+/* harmony default export */ __webpack_exports__["a"] = (_default);
+
+
+var Input = function Input(_ref) {
+  var name = _ref.name,
+      label = _ref.label,
+      value = _ref.value,
+      onChange = _ref.onChange,
+      type = _ref.type,
+      props = _objectWithoutProperties(_ref, ['name', 'label', 'value', 'onChange', 'type']);
+
+  return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+    'label',
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 67
+      }
+    },
+    label,
+    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', _extends({}, props, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 69
+      }
+    }))
+  );
+};
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
+
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(InputForm, 'InputForm', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js');
+  reactHotLoader.register(Input, 'Input', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js');
+  reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js');
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
 /***/ "./node_modules/fbjs/lib/emptyFunction.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2164,7 +2329,7 @@ module.exports = function shallowEqual(objA, objB, compare, compareContext) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export css */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return css; });
 /* unused harmony export keyframes */
 /* unused harmony export injectGlobal */
 /* unused harmony export ThemeProvider */
@@ -3904,7 +4069,7 @@ var keyframes = _keyframes(generateAlphabeticName, stringifyRules, css);
 var injectGlobal = _injectGlobal(stringifyRules, css);
 var styled = _styled(StyledComponent, constructWithOptions);
 
-/* harmony default export */ __webpack_exports__["a"] = (styled);
+/* harmony default export */ __webpack_exports__["b"] = (styled);
 
 
 /***/ }),
@@ -5637,7 +5802,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("./node_modules/styled-components/dist/styled-components.es.js");
-var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/with-styled-components/pages/index.js';
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_inputform__ = __webpack_require__("./components/inputform.js");
+var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js';
+
+var _templateObject = _taggedTemplateLiteral(['\n    ', '\n  '], ['\n    ', '\n  ']);
 
 (function () {
   var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
@@ -5645,24 +5813,42 @@ var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/with-styled-components/page
   enterModule && enterModule(module);
 })();
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
-var Title = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].h1.withConfig({
-  displayName: 'pages__Title',
-  componentId: 's1wbo52z-0'
-})(['color:red;font-size:50px;']);
+
+
+// media query mixin 
+var media = {
+  ipad: function ipad() {
+    return Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* css */])(['@media (max-width:1020px){', '}'], __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* css */].apply(undefined, arguments));
+  }
+
+  // div component with css props for faster styling 
+};var Div = __WEBPACK_IMPORTED_MODULE_1_styled_components__["b" /* default */].div.withConfig({
+  displayName: 'pages__Div',
+  componentId: 'pj87p0-0'
+})(['', ''], media.ipad(_templateObject, function (_ref) {
+  var ipad = _ref.ipad;
+  return Object(__WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* css */])(['', ''], ipad);
+}));
 
 var _default = function _default() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    Title,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 23
       }
     },
-    'My page'
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
+      }
+    })
   );
 };
 
@@ -5678,8 +5864,9 @@ var _default = function _default() {
     return;
   }
 
-  reactHotLoader.register(Title, 'Title', '/Users/tanakasamuel/git/PROJECTS/with-styled-components/pages/index.js');
-  reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/with-styled-components/pages/index.js');
+  reactHotLoader.register(media, 'media', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
+  reactHotLoader.register(Div, 'Div', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
+  reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
   leaveModule(module);
 })();
 

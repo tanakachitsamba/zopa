@@ -72,17 +72,17 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "/Users/tanakasamuel/git/PROJECTS/with-styled-components/node_modules/next/dist/pages/_error.js":
+/***/ "/Users/tanakasamuel/git/PROJECTS/zopa/node_modules/next/dist/pages/_error.js":
 /***/ (function(module, exports) {
 
-module.exports = require("/Users/tanakasamuel/git/PROJECTS/with-styled-components/node_modules/next/dist/pages/_error.js");
+module.exports = require("/Users/tanakasamuel/git/PROJECTS/zopa/node_modules/next/dist/pages/_error.js");
 
 /***/ }),
 
 /***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("/Users/tanakasamuel/git/PROJECTS/with-styled-components/node_modules/next/dist/pages/_error.js");
+module.exports = __webpack_require__("/Users/tanakasamuel/git/PROJECTS/zopa/node_modules/next/dist/pages/_error.js");
 
 
 /***/ })

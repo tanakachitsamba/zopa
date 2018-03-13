@@ -1,9 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import InputForm from '../components/inputform'
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
+// media query mixin 
+const media = {
+  ipad: (...args) => css`
+    @media (max-width: 1020px) {
+      ${ css(...args) }
+    }
+  `
+}
+
+// div component with css props for faster styling 
+const Div = styled.div`
+  ${media.ipad`
+    ${({ipad}) => css`${ipad}`}
+  `}
 `
 
-export default () => <Title>My page</Title>
+
+export default () => (
+  <React.Fragment>
+    <InputForm />
+  </React.Fragment>
+)
