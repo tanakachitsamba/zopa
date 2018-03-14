@@ -1,90 +1,23 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		var threw = true;
-/******/ 		try {
-/******/ 			modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 			threw = false;
-/******/ 		} finally {
-/******/ 			if(threw) delete installedModules[moduleId];
-/******/ 		}
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
-/******/ })
-/************************************************************************/
-/******/ ({
+webpackHotUpdate(4,{
 
 /***/ "./components/inputform.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_formik__ = __webpack_require__("formik");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_formik___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_formik__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_formik__ = __webpack_require__("./node_modules/formik/dist/formik.es6.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+(function () {
+	var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
+
+	enterModule && enterModule(module);
+})();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -133,7 +66,7 @@ var Form = function (_React$Component) {
 		key: 'render',
 		value: function render() {
 			return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-				__WEBPACK_IMPORTED_MODULE_1_formik__["Formik"],
+				__WEBPACK_IMPORTED_MODULE_1_formik__["a" /* Formik */],
 				{
 					initialValues: _extends({}, this.state),
 					validate: this.validate,
@@ -236,79 +169,38 @@ var Form = function (_React$Component) {
 				}
 			);
 		}
+	}, {
+		key: '__reactstandin__regenerateByEval',
+		value: function __reactstandin__regenerateByEval(key, code) {
+			this[key] = eval(code);
+		}
 	}]);
 
 	return Form;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Form);
+var _default = Form;
+/* harmony default export */ __webpack_exports__["a"] = (_default);
+;
 
-/***/ }),
+(function () {
+	var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
 
-/***/ "./pages/index.js":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+	var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("styled-components");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_styled_components__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_inputform__ = __webpack_require__("./components/inputform.js");
-var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js';
+	if (!reactHotLoader) {
+		return;
+	}
 
+	reactHotLoader.register(Form, 'Form', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js');
+	reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js');
+	leaveModule(module);
+})();
 
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
-        {
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 9
-            }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 10
-            }
-        })
-    );
-});
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/index.js");
-
-
-/***/ }),
-
-/***/ "formik":
-/***/ (function(module, exports) {
-
-module.exports = require("formik");
-
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ "styled-components":
-/***/ (function(module, exports) {
-
-module.exports = require("styled-components");
+;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
 
 /***/ })
 
-/******/ });
-//# sourceMappingURL=index.js.map
+})
+//# sourceMappingURL=4.bec4059e15b0b1e5a83e.hot-update.js.map

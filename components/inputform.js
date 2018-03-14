@@ -8,6 +8,10 @@ type State = {
 	amount: number
 }
 
+type Errors = {
+    [x: string]: string
+}
+
 export default class Form extends React.Component<State> {
     state = {
         name: '', 
@@ -15,8 +19,8 @@ export default class Form extends React.Component<State> {
         amount: 0, 
     }
 
-	validate = values => {
-		let errors = {}
+	validate = (values: State): Errors => {
+		let errors: Errors = {}
 		if (!values.email) {
 			errors.email = 'Required'
 		} else if (
@@ -27,8 +31,8 @@ export default class Form extends React.Component<State> {
 		return errors
 	}
 
-	onSubmit = (setSubmitting, setErrors) => {
-		errors => {
+	onSubmit = (setSubmitting, setErrors): void => {
+		(errors: Errors): void => {
 			setSubmitting(false)
 			setErrors(errors)
 		}
