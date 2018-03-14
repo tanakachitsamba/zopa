@@ -12,6 +12,15 @@ type Errors = {
     [x: string]: string
 }
 
+type FormProps = {
+    values: State,
+    errors: Errors,
+    handleChange: (e: React.ChangeEvent<any>) => void,
+    handleBlur: (e: any) => void, 
+    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
+    isSubmitting: boolean
+}
+
 export default class Form extends React.Component<State> {
     state = {
         name: '', 
@@ -47,12 +56,12 @@ export default class Form extends React.Component<State> {
 				{({
 					values,
 					errors,
-					touched,
 					handleChange,
 					handleBlur,
 					handleSubmit,
-					isSubmitting
-				}) => (
+                    isSubmitting,
+                    touched
+				}: FormProps) => (
 					<form onSubmit={handleSubmit}>
 						<input
 							type="name"
