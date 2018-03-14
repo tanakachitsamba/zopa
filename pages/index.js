@@ -1,10 +1,12 @@
-import React from 'react'
+// @flow
+import * as React from 'react'
 import styled, { css } from 'styled-components'
-import InputForm from '../components/inputform'
 
+
+import Form from '../components/inputform'
 
 export default () => (
-  <React.Fragment>
-    <InputForm />
-  </React.Fragment>
+    <React.Fragment>
+        <Form />
+    </React.Fragment>
 )

@@ -78,15 +78,13 @@ module.exports =
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_formik__ = __webpack_require__("formik");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_formik___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_formik__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -96,113 +94,154 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var InputForm = function (_React$Component) {
-  _inherits(InputForm, _React$Component);
 
-  function InputForm(props) {
-    _classCallCheck(this, InputForm);
+var Form = function (_React$Component) {
+	_inherits(Form, _React$Component);
 
-    var _this = _possibleConstructorReturn(this, (InputForm.__proto__ || Object.getPrototypeOf(InputForm)).call(this, props));
+	function Form() {
+		var _ref;
 
-    _this.handleInput = function (event) {
-      return _this.setState(_defineProperty({}, event.target.name, event.target.value));
-    };
+		var _temp, _this, _ret;
 
-    _this.handleSubmit = function (event) {
-      event.preventDefault();
-    };
+		_classCallCheck(this, Form);
 
-    _this.state = {
-      name: '',
-      email: '',
-      amount: 0
-    };
-    return _this;
-  }
+		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+			args[_key] = arguments[_key];
+		}
 
-  _createClass(InputForm, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-        'form',
-        { onSubmit: this.handleSubmit, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 31
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, {
-          name: 'name',
-          type: 'text',
-          label: 'Name',
-          value: this.state.name,
-          onChange: this.handleInput,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 32
-          }
-        }),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, {
-          name: 'email',
-          type: 'email',
-          label: 'Email',
-          value: this.state.email,
-          onChange: this.handleInput,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 39
-          }
-        }),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](Input, {
-          name: 'amount',
-          type: 'number',
-          label: 'Amount',
-          value: this.state.amount,
-          onChange: this.handleInput,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 46
-          }
-        }),
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', { type: 'submit', value: 'Submit', __source: {
-            fileName: _jsxFileName,
-            lineNumber: 53
-          }
-        })
-      );
-    }
-  }]);
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Form.__proto__ || Object.getPrototypeOf(Form)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+			name: '',
+			email: '',
+			amount: 0
+		}, _this.validate = function (values) {
+			var errors = {};
+			if (!values.email) {
+				errors.email = 'Required';
+			} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+				errors.email = 'Invalid email address';
+			}
+			return errors;
+		}, _this.onSubmit = function (setSubmitting, setErrors) {
+			(function (errors) {
+				setSubmitting(false);
+				setErrors(errors);
+			});
+		}, _temp), _possibleConstructorReturn(_this, _ret);
+	}
 
-  return InputForm;
+	_createClass(Form, [{
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+				__WEBPACK_IMPORTED_MODULE_1_formik__["Formik"],
+				{
+					initialValues: _extends({}, this.state),
+					validate: this.validate,
+					onSubmit: this.onSubmit, __source: {
+						fileName: _jsxFileName,
+						lineNumber: 39
+					}
+				},
+				function (_ref2) {
+					var values = _ref2.values,
+					    errors = _ref2.errors,
+					    touched = _ref2.touched,
+					    handleChange = _ref2.handleChange,
+					    handleBlur = _ref2.handleBlur,
+					    handleSubmit = _ref2.handleSubmit,
+					    isSubmitting = _ref2.isSubmitting;
+					return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+						'form',
+						{ onSubmit: handleSubmit, __source: {
+								fileName: _jsxFileName,
+								lineNumber: 52
+							}
+						},
+						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
+							type: 'name',
+							name: 'name',
+							onChange: handleChange,
+							onBlur: handleBlur,
+							value: values.name,
+							placeholder: 'Jane Smith',
+							__source: {
+								fileName: _jsxFileName,
+								lineNumber: 53
+							}
+						}),
+						touched.name && errors.name && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+							'div',
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 61
+								}
+							},
+							errors.name
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
+							type: 'email',
+							name: 'email',
+							onChange: handleChange,
+							onBlur: handleBlur,
+							value: values.email,
+							placeholder: 'alex.smith@zopa.com',
+							__source: {
+								fileName: _jsxFileName,
+								lineNumber: 63
+							}
+						}),
+						touched.email && errors.email && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+							'div',
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 71
+								}
+							},
+							errors.email
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
+							type: 'number',
+							name: 'amount',
+							onChange: handleChange,
+							onBlur: handleBlur,
+							value: values.amount,
+							placeholder: '\xA3 1300',
+							__source: {
+								fileName: _jsxFileName,
+								lineNumber: 73
+							}
+						}),
+						touched.amount && errors.amount && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+							'div',
+							{
+								__source: {
+									fileName: _jsxFileName,
+									lineNumber: 81
+								}
+							},
+							errors.amount
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+							'button',
+							{ type: 'submit', disabled: isSubmitting, __source: {
+									fileName: _jsxFileName,
+									lineNumber: 83
+								}
+							},
+							'Submit'
+						)
+					);
+				}
+			);
+		}
+	}]);
+
+	return Form;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (InputForm);
-
-
-var Input = function Input(_ref) {
-  var name = _ref.name,
-      label = _ref.label,
-      value = _ref.value,
-      onChange = _ref.onChange,
-      type = _ref.type,
-      props = _objectWithoutProperties(_ref, ['name', 'label', 'value', 'onChange', 'type']);
-
-  return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-    'label',
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 67
-      }
-    },
-    label,
-    __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', _extends({}, props, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 69
-      }
-    }))
-  );
-};
+/* harmony default export */ __webpack_exports__["a"] = (Form);
 
 /***/ }),
 
@@ -221,22 +260,23 @@ var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js';
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.Fragment,
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 7
-      }
-    },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 8
-      }
-    })
-  );
+    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
+        {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 9
+            }
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 10
+            }
+        })
+    );
 });
 
 /***/ }),
@@ -246,6 +286,13 @@ var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js';
 
 module.exports = __webpack_require__("./pages/index.js");
 
+
+/***/ }),
+
+/***/ "formik":
+/***/ (function(module, exports) {
+
+module.exports = require("formik");
 
 /***/ }),
 
