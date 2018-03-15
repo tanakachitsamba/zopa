@@ -54,7 +54,7 @@ var Form = function (_React$Component) {
 		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Form.__proto__ || Object.getPrototypeOf(Form)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
 			name: '',
 			email: '',
-			amount: 0
+			amount: '£ 0.00' // would be double decimal but not currently needed. 
 		}, _this.validate = function (values) {
 			var errors = {};
 
@@ -93,7 +93,7 @@ var Form = function (_React$Component) {
 					validate: this.validate,
 					onSubmit: this.onSubmit, __source: {
 						fileName: _jsxFileName,
-						lineNumber: 66
+						lineNumber: 64
 					}
 				},
 				function (_ref2) {
@@ -108,7 +108,7 @@ var Form = function (_React$Component) {
 						'form',
 						{ onSubmit: handleSubmit, __source: {
 								fileName: _jsxFileName,
-								lineNumber: 79
+								lineNumber: 77
 							}
 						},
 						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
@@ -120,7 +120,7 @@ var Form = function (_React$Component) {
 							placeholder: 'Jane Smith',
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 80
+								lineNumber: 78
 							}
 						}),
 						touched.name && errors.name && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -128,7 +128,7 @@ var Form = function (_React$Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 89
+									lineNumber: 87
 								}
 							},
 							errors.name
@@ -142,7 +142,7 @@ var Form = function (_React$Component) {
 							placeholder: 'alex.smith@zopa.com',
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 91
+								lineNumber: 89
 							}
 						}),
 						touched.email && errors.email && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -150,7 +150,7 @@ var Form = function (_React$Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 100
+									lineNumber: 98
 								}
 							},
 							errors.email
@@ -163,7 +163,7 @@ var Form = function (_React$Component) {
 							prefix: '\xA3 ',
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 102
+								lineNumber: 100
 							}
 						}),
 						touched.amount && errors.amount && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -171,7 +171,7 @@ var Form = function (_React$Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 110
+									lineNumber: 108
 								}
 							},
 							errors.amount
@@ -180,7 +180,7 @@ var Form = function (_React$Component) {
 							'button',
 							{ type: 'submit', disabled: isSubmitting, __source: {
 									fileName: _jsxFileName,
-									lineNumber: 112
+									lineNumber: 110
 								}
 							},
 							'Send'

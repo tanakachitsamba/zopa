@@ -5,9 +5,7 @@ import isEmpty from 'lodash.isempty'
 import CurrencyInput from 'react-currency-input'
 
 type State = {
-	name: string,
-	email: string,
-	amount: number
+	[x: string]: string
 }
 
 type Errors = {
@@ -27,7 +25,7 @@ export default class Form extends React.Component<State> {
 	state = {
 		name: '',
 		email: '',
-		amount: 0
+		amount: '£ 0.00' // would be double decimal but not currently needed. 
 	}
 
 	validate = (values: State): Errors => {
