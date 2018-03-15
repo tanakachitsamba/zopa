@@ -4,7 +4,7 @@ module.exports =
           var comp = 
       webpackJsonp([4],{
 
-/***/ "./components/inputform.js":
+/***/ "./components/inputform/index.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14,9 +14,11 @@ module.exports =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash_isempty__ = __webpack_require__("./node_modules/lodash.isempty/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash_isempty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash_isempty__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_currency_input__ = __webpack_require__("./node_modules/react-currency-input/lib/react-currency-input.es.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_styled_components__ = __webpack_require__("./node_modules/styled-components/dist/styled-components.es.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__styles__ = __webpack_require__("./components/inputform/styles.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js';
+var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/index.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -25,6 +27,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 	enterModule && enterModule(module);
 })();
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -37,24 +41,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Form = function (_React$Component) {
-	_inherits(Form, _React$Component);
 
-	function Form() {
+
+var InputForm = function (_React$Component) {
+	_inherits(InputForm, _React$Component);
+
+	function InputForm() {
 		var _ref;
 
 		var _temp, _this, _ret;
 
-		_classCallCheck(this, Form);
+		_classCallCheck(this, InputForm);
 
 		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
 			args[_key] = arguments[_key];
 		}
 
-		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Form.__proto__ || Object.getPrototypeOf(Form)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+		return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = InputForm.__proto__ || Object.getPrototypeOf(InputForm)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
 			name: '',
 			email: '',
-			amount: '£ 0.00' // would be double decimal but not currently needed. 
+			amount: '£ 0' // would be double decimal but not currently needed.
 		}, _this.validate = function (values) {
 			var errors = {};
 
@@ -70,7 +76,7 @@ var Form = function (_React$Component) {
 				errors.name = 'Please enter a valid name';
 			}
 
-			if (values.amount === 0.00) {
+			if (values.amount === '£ 0') {
 				errors.amount = 'please enter an amont';
 			}
 
@@ -83,111 +89,19 @@ var Form = function (_React$Component) {
 		}, _temp), _possibleConstructorReturn(_this, _ret);
 	}
 
-	_createClass(Form, [{
+	_createClass(InputForm, [{
 		key: 'render',
 		value: function render() {
-			return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-				__WEBPACK_IMPORTED_MODULE_1_formik__["a" /* Formik */],
-				{
-					initialValues: _extends({}, this.state),
-					validate: this.validate,
-					onSubmit: this.onSubmit, __source: {
-						fileName: _jsxFileName,
-						lineNumber: 64
-					}
-				},
-				function (_ref2) {
-					var values = _ref2.values,
-					    errors = _ref2.errors,
-					    handleChange = _ref2.handleChange,
-					    handleBlur = _ref2.handleBlur,
-					    handleSubmit = _ref2.handleSubmit,
-					    isSubmitting = _ref2.isSubmitting,
-					    touched = _ref2.touched;
-					return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-						'form',
-						{ onSubmit: handleSubmit, __source: {
-								fileName: _jsxFileName,
-								lineNumber: 77
-							}
-						},
-						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
-							type: 'name',
-							name: 'name',
-							onChange: handleChange,
-							onBlur: handleBlur,
-							value: values.name,
-							placeholder: 'Jane Smith',
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 78
-							}
-						}),
-						touched.name && errors.name && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-							'div',
-							{
-								__source: {
-									fileName: _jsxFileName,
-									lineNumber: 87
-								}
-							},
-							errors.name
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
-							type: 'email',
-							name: 'email',
-							onChange: handleChange,
-							onBlur: handleBlur,
-							value: values.email,
-							placeholder: 'alex.smith@zopa.com',
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 89
-							}
-						}),
-						touched.email && errors.email && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-							'div',
-							{
-								__source: {
-									fileName: _jsxFileName,
-									lineNumber: 98
-								}
-							},
-							errors.email
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3_react_currency_input__["a" /* default */], {
-							name: 'amount',
-							value: values.amount,
-							onChangeEvent: handleChange,
-							onBlur: handleBlur,
-							prefix: '\xA3 ',
-							__source: {
-								fileName: _jsxFileName,
-								lineNumber: 100
-							}
-						}),
-						touched.amount && errors.amount && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-							'div',
-							{
-								__source: {
-									fileName: _jsxFileName,
-									lineNumber: 108
-								}
-							},
-							errors.amount
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-							'button',
-							{ type: 'submit', disabled: isSubmitting, __source: {
-									fileName: _jsxFileName,
-									lineNumber: 110
-								}
-							},
-							'Send'
-						)
-					);
+			return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_1_formik__["a" /* Formik */], {
+				initialValues: _extends({}, this.state),
+				validate: this.validate,
+				onSubmit: this.onSubmit,
+				component: Form,
+				__source: {
+					fileName: _jsxFileName,
+					lineNumber: 66
 				}
-			);
+			});
 		}
 	}, {
 		key: '__reactstandin__regenerateByEval',
@@ -196,10 +110,241 @@ var Form = function (_React$Component) {
 		}
 	}]);
 
-	return Form;
+	return InputForm;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-var _default = Form;
+var _default = InputForm;
+/* harmony default export */ __webpack_exports__["a"] = (_default);
+
+
+var Form = function Form(_ref2) {
+	var values = _ref2.values,
+	    errors = _ref2.errors,
+	    handleChange = _ref2.handleChange,
+	    handleBlur = _ref2.handleBlur,
+	    handleSubmit = _ref2.handleSubmit,
+	    isSubmitting = _ref2.isSubmitting,
+	    touched = _ref2.touched,
+	    props = _objectWithoutProperties(_ref2, ['values', 'errors', 'handleChange', 'handleBlur', 'handleSubmit', 'isSubmitting', 'touched']);
+
+	return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+		__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].Form,
+		{ onSubmit: handleSubmit, __source: {
+				fileName: _jsxFileName,
+				lineNumber: 86
+			}
+		},
+		__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+			__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].Label,
+			{ topLabel: true, __source: {
+					fileName: _jsxFileName,
+					lineNumber: 87
+				}
+			},
+			'Name'
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].Input, {
+			label: 'name',
+			name: 'name',
+			onChange: handleChange,
+			onBlur: handleBlur,
+			values: values.name,
+			error: errors.name,
+			touched: touched.name,
+			__source: {
+				fileName: _jsxFileName,
+				lineNumber: 88
+			}
+		}),
+		touched.name && errors.name && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+			__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].ErrorText,
+			{
+				__source: {
+					fileName: _jsxFileName,
+					lineNumber: 98
+				}
+			},
+			errors.name
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+			__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].Label,
+			{
+				__source: {
+					fileName: _jsxFileName,
+					lineNumber: 100
+				}
+			},
+			'Email'
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].Input, {
+			label: 'email',
+			name: 'email',
+			onChange: handleChange,
+			onBlur: handleBlur,
+			values: values.email,
+			error: errors.email,
+			touched: touched.email,
+			__source: {
+				fileName: _jsxFileName,
+				lineNumber: 101
+			}
+		}),
+		touched.email && errors.email && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+			__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].ErrorText,
+			{
+				__source: {
+					fileName: _jsxFileName,
+					lineNumber: 111
+				}
+			},
+			errors.email
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+			__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].Label,
+			{
+				__source: {
+					fileName: _jsxFileName,
+					lineNumber: 113
+				}
+			},
+			'Amount'
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].CurrencyInput, {
+			name: 'amount',
+			value: values.amount,
+			onChangeEvent: handleChange,
+			onBlur: handleBlur,
+			precision: '0',
+			prefix: '\xA3 ',
+			error: errors.amount,
+			touched: touched.amount,
+			__source: {
+				fileName: _jsxFileName,
+				lineNumber: 114
+			}
+		}),
+		touched.amount && errors.amount && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+			__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].ErrorText,
+			{
+				__source: {
+					fileName: _jsxFileName,
+					lineNumber: 125
+				}
+			},
+			errors.amount
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+			__WEBPACK_IMPORTED_MODULE_5__styles__["a" /* default */].Button,
+			{ type: 'submit', disabled: isSubmitting, __source: {
+					fileName: _jsxFileName,
+					lineNumber: 127
+				}
+			},
+			'Send'
+		)
+	);
+};
+;
+
+(function () {
+	var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
+
+	var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
+
+	if (!reactHotLoader) {
+		return;
+	}
+
+	reactHotLoader.register(InputForm, 'InputForm', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/index.js');
+	reactHotLoader.register(Form, 'Form', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/index.js');
+	reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/index.js');
+	leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./components/inputform/styles.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_currency_input__ = __webpack_require__("./node_modules/react-currency-input/lib/react-currency-input.es.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_components__ = __webpack_require__("./node_modules/styled-components/dist/styled-components.es.js");
+(function () {
+	var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
+
+	enterModule && enterModule(module);
+})();
+
+
+
+
+
+var StyledForm = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].form.withConfig({
+	displayName: 'styles__StyledForm',
+	componentId: 's90ypnu-0'
+})(['display:flex;flex:1;flex-direction:column;justify-content:center;width:340px;margin:4em auto;padding:3em 2em 2em 2em;']);
+
+var StyledLabel = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].label.withConfig({
+	displayName: 'styles__StyledLabel',
+	componentId: 's90ypnu-1'
+})(['font-family:SF Pro Text;line-height:20px;font-size:15px;color:#1c2139;padding-bottom:5px;', ';'], function (_ref) {
+	var topLabel = _ref.topLabel;
+	return !topLabel && 'margin-top: 36px;';
+});
+
+var StyledInput = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].input.withConfig({
+	displayName: 'styles__StyledInput',
+	componentId: 's90ypnu-2'
+})(['font-family:SF Pro Display;font-size:20px;line-height:24px;color:#000000;width:100%;border:none;border-radius:0;padding:10px 10px 10px 0;transition:border-bottom 2s;border-bottom:2px solid ', ';:focus{border-bottom:2px solid ', ';}'], function (_ref2) {
+	var error = _ref2.error,
+	    touched = _ref2.touched;
+	return touched && error ? '#D0021B' : '#d6d7de';
+}, function (_ref3) {
+	var error = _ref3.error,
+	    touched = _ref3.touched;
+	return touched && error ? '#D0021B' : '#4B3CFA';
+});
+
+var StyledButton = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].button.withConfig({
+	displayName: 'styles__StyledButton',
+	componentId: 's90ypnu-3'
+})(['font-family:SF Pro Text;font-size:16px;font-weight:600;line-height:24px;text-align:center;background:#4b3cfa;color:white;border-radius:100px;display:inline-block;border:none;text-decoration:none;height:48px;margin-top:190px;']);
+
+var StyledErrorText = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].div.withConfig({
+	displayName: 'styles__StyledErrorText',
+	componentId: 's90ypnu-4'
+})(['font-family:SF Pro Text;font-style:normal;font-weight:normal;line-height:20px;font-size:14px;color:#d0021b;margin-top:5px;']);
+
+var StyledCurrencyInput = Object(__WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_1_react_currency_input__["a" /* default */]).withConfig({
+	displayName: 'styles__StyledCurrencyInput',
+	componentId: 's90ypnu-5'
+})(['font-family:SF Pro Display;font-size:20px;line-height:24px;color:#000000;width:100%;border:none;border-radius:0;padding:10px 10px 10px 0;transition:border-bottom 2s;border-bottom:2px solid ', ';:focus{border-bottom:2px solid ', ';}'], function (_ref4) {
+	var error = _ref4.error,
+	    touched = _ref4.touched;
+	return touched && error ? '#D0021B' : '#d6d7de';
+}, function (_ref5) {
+	var error = _ref5.error,
+	    touched = _ref5.touched;
+	return touched && error ? '#D0021B' : '#4B3CFA';
+});
+
+var FormStyles = __WEBPACK_IMPORTED_MODULE_2_styled_components__["a" /* default */].div.withConfig({
+	displayName: 'styles__FormStyles',
+	componentId: 's90ypnu-6'
+})(['']);
+FormStyles.Form = StyledForm;
+FormStyles.Label = StyledLabel;
+FormStyles.Input = StyledInput;
+FormStyles.Button = StyledButton;
+FormStyles.ErrorText = StyledErrorText;
+FormStyles.CurrencyInput = StyledCurrencyInput;
+
+var _default = FormStyles;
 /* harmony default export */ __webpack_exports__["a"] = (_default);
 ;
 
@@ -212,8 +357,14 @@ var _default = Form;
 		return;
 	}
 
-	reactHotLoader.register(Form, 'Form', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js');
-	reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js');
+	reactHotLoader.register(StyledForm, 'StyledForm', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
+	reactHotLoader.register(StyledLabel, 'StyledLabel', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
+	reactHotLoader.register(StyledInput, 'StyledInput', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
+	reactHotLoader.register(StyledButton, 'StyledButton', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
+	reactHotLoader.register(StyledErrorText, 'StyledErrorText', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
+	reactHotLoader.register(StyledCurrencyInput, 'StyledCurrencyInput', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
+	reactHotLoader.register(FormStyles, 'FormStyles', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
+	reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform/styles.js');
 	leaveModule(module);
 })();
 
@@ -11918,7 +12069,7 @@ var keyframes = _keyframes(generateAlphabeticName, stringifyRules, css);
 var injectGlobal = _injectGlobal(stringifyRules, css);
 var styled = _styled(StyledComponent, constructWithOptions);
 
-/* unused harmony default export */ var _unused_webpack_default_export = (styled);
+/* harmony default export */ __webpack_exports__["a"] = (styled);
 
 
 /***/ }),
@@ -13708,52 +13859,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_styled_components__ = __webpack_require__("./node_modules/styled-components/dist/styled-components.es.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_inputform__ = __webpack_require__("./components/inputform.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_inputform__ = __webpack_require__("./components/inputform/index.js");
 var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js';
 
 (function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
 
-    enterModule && enterModule(module);
+  enterModule && enterModule(module);
 })();
 
 
 
 
 
+var Wrapper = __WEBPACK_IMPORTED_MODULE_1_styled_components__["a" /* default */].div.withConfig({
+  displayName: 'pages__Wrapper',
+  componentId: 'pj87p0-0'
+})([' ']);
 
 var _default = function _default() {
-    return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-        __WEBPACK_IMPORTED_MODULE_0_react__["Fragment"],
-        {
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 9
-            }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
-            __source: {
-                fileName: _jsxFileName,
-                lineNumber: 10
-            }
-        })
-    );
+  return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2__components_inputform__["a" /* default */], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    }
+  });
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 
 (function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
 
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
 
-    if (!reactHotLoader) {
-        return;
-    }
+  if (!reactHotLoader) {
+    return;
+  }
 
-    reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
-    leaveModule(module);
+  reactHotLoader.register(Wrapper, 'Wrapper', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
+  reactHotLoader.register(_default, 'default', '/Users/tanakasamuel/git/PROJECTS/zopa/pages/index.js');
+  leaveModule(module);
 })();
 
 ;
