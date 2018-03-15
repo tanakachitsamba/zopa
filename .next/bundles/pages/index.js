@@ -11,6 +11,9 @@ module.exports =
 /* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_formik__ = __webpack_require__("./node_modules/formik/dist/formik.es6.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash_isempty__ = __webpack_require__("./node_modules/lodash.isempty/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash_isempty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash_isempty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_currency_input__ = __webpack_require__("./node_modules/react-currency-input/lib/react-currency-input.es.js");
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _jsxFileName = '/Users/tanakasamuel/git/PROJECTS/zopa/components/inputform.js';
@@ -28,6 +31,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
 
 
 
@@ -52,14 +57,26 @@ var Form = function (_React$Component) {
 			amount: 0
 		}, _this.validate = function (values) {
 			var errors = {};
-			if (!values.email) {
-				errors.email = 'Required';
+
+			if (__WEBPACK_IMPORTED_MODULE_2_lodash_isempty___default()(values.email)) {
+				errors.email = 'Please enter an email address';
 			} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
 				errors.email = 'Invalid email address';
 			}
+
+			if (__WEBPACK_IMPORTED_MODULE_2_lodash_isempty___default()(values.name)) {
+				errors.name = 'Please enter a name';
+			} else if (!/^[A-Za-z ]+$/.test(values.name)) {
+				errors.name = 'Please enter a valid name';
+			}
+
+			if (values.amount === 0.00) {
+				errors.amount = 'please enter an amont';
+			}
+
 			return errors;
 		}, _this.onSubmit = function (setSubmitting, setErrors) {
-			(function (errors) {
+			;(function (errors) {
 				setSubmitting(false);
 				setErrors(errors);
 			});
@@ -76,7 +93,7 @@ var Form = function (_React$Component) {
 					validate: this.validate,
 					onSubmit: this.onSubmit, __source: {
 						fileName: _jsxFileName,
-						lineNumber: 52
+						lineNumber: 66
 					}
 				},
 				function (_ref2) {
@@ -91,7 +108,7 @@ var Form = function (_React$Component) {
 						'form',
 						{ onSubmit: handleSubmit, __source: {
 								fileName: _jsxFileName,
-								lineNumber: 65
+								lineNumber: 79
 							}
 						},
 						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
@@ -103,7 +120,7 @@ var Form = function (_React$Component) {
 							placeholder: 'Jane Smith',
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 66
+								lineNumber: 80
 							}
 						}),
 						touched.name && errors.name && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -111,7 +128,7 @@ var Form = function (_React$Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 74
+									lineNumber: 89
 								}
 							},
 							errors.name
@@ -125,7 +142,7 @@ var Form = function (_React$Component) {
 							placeholder: 'alex.smith@zopa.com',
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 76
+								lineNumber: 91
 							}
 						}),
 						touched.email && errors.email && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -133,21 +150,20 @@ var Form = function (_React$Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 84
+									lineNumber: 100
 								}
 							},
 							errors.email
 						),
-						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('input', {
-							type: 'number',
+						__WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3_react_currency_input__["a" /* default */], {
 							name: 'amount',
-							onChange: handleChange,
-							onBlur: handleBlur,
 							value: values.amount,
-							placeholder: '\xA3 1300',
+							onChangeEvent: handleChange,
+							onBlur: handleBlur,
+							prefix: '\xA3 ',
 							__source: {
 								fileName: _jsxFileName,
-								lineNumber: 86
+								lineNumber: 102
 							}
 						}),
 						touched.amount && errors.amount && __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -155,7 +171,7 @@ var Form = function (_React$Component) {
 							{
 								__source: {
 									fileName: _jsxFileName,
-									lineNumber: 94
+									lineNumber: 110
 								}
 							},
 							errors.amount
@@ -164,10 +180,10 @@ var Form = function (_React$Component) {
 							'button',
 							{ type: 'submit', disabled: isSubmitting, __source: {
 									fileName: _jsxFileName,
-									lineNumber: 96
+									lineNumber: 112
 								}
 							},
-							'Submit'
+							'Send'
 						)
 					);
 				}
@@ -203,6 +219,251 @@ var _default = Form;
 
 ;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/EventListener.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var emptyFunction = __webpack_require__("./node_modules/fbjs/lib/emptyFunction.js");
+
+/**
+ * Upstream version of event listener. Does not take into account specific
+ * nature of platform.
+ */
+var EventListener = {
+  /**
+   * Listen to DOM events during the bubble phase.
+   *
+   * @param {DOMEventTarget} target DOM element to register listener on.
+   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
+   * @param {function} callback Callback function.
+   * @return {object} Object with a `remove` method.
+   */
+  listen: function listen(target, eventType, callback) {
+    if (target.addEventListener) {
+      target.addEventListener(eventType, callback, false);
+      return {
+        remove: function remove() {
+          target.removeEventListener(eventType, callback, false);
+        }
+      };
+    } else if (target.attachEvent) {
+      target.attachEvent('on' + eventType, callback);
+      return {
+        remove: function remove() {
+          target.detachEvent('on' + eventType, callback);
+        }
+      };
+    }
+  },
+
+  /**
+   * Listen to DOM events during the capture phase.
+   *
+   * @param {DOMEventTarget} target DOM element to register listener on.
+   * @param {string} eventType Event type, e.g. 'click' or 'mouseover'.
+   * @param {function} callback Callback function.
+   * @return {object} Object with a `remove` method.
+   */
+  capture: function capture(target, eventType, callback) {
+    if (target.addEventListener) {
+      target.addEventListener(eventType, callback, true);
+      return {
+        remove: function remove() {
+          target.removeEventListener(eventType, callback, true);
+        }
+      };
+    } else {
+      if (true) {
+        console.error('Attempted to listen to events during the capture phase on a ' + 'browser that does not support the capture phase. Your application ' + 'will not receive some events.');
+      }
+      return {
+        remove: emptyFunction
+      };
+    }
+  },
+
+  registerDefault: function registerDefault() {}
+};
+
+module.exports = EventListener;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/ExecutionEnvironment.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+/**
+ * Simple, lightweight module assisting with the detection and context of
+ * Worker. Helps avoid circular dependencies and allows code to reason about
+ * whether or not they are in a Worker, even if they never include the main
+ * `ReactWorker` dependency.
+ */
+var ExecutionEnvironment = {
+
+  canUseDOM: canUseDOM,
+
+  canUseWorkers: typeof Worker !== 'undefined',
+
+  canUseEventListeners: canUseDOM && !!(window.addEventListener || window.attachEvent),
+
+  canUseViewport: canUseDOM && !!window.screen,
+
+  isInWorker: !canUseDOM // For now, this is true - might change in the future.
+
+};
+
+module.exports = ExecutionEnvironment;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/camelize.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var _hyphenPattern = /-(.)/g;
+
+/**
+ * Camelcases a hyphenated string, for example:
+ *
+ *   > camelize('background-color')
+ *   < "backgroundColor"
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function camelize(string) {
+  return string.replace(_hyphenPattern, function (_, character) {
+    return character.toUpperCase();
+  });
+}
+
+module.exports = camelize;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/camelizeStyleName.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+
+
+var camelize = __webpack_require__("./node_modules/fbjs/lib/camelize.js");
+
+var msPattern = /^-ms-/;
+
+/**
+ * Camelcases a hyphenated CSS property name, for example:
+ *
+ *   > camelizeStyleName('background-color')
+ *   < "backgroundColor"
+ *   > camelizeStyleName('-moz-transition')
+ *   < "MozTransition"
+ *   > camelizeStyleName('-ms-transition')
+ *   < "msTransition"
+ *
+ * As Andi Smith suggests
+ * (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
+ * is converted to lowercase `ms`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function camelizeStyleName(string) {
+  return camelize(string.replace(msPattern, 'ms-'));
+}
+
+module.exports = camelizeStyleName;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/containsNode.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+var isTextNode = __webpack_require__("./node_modules/fbjs/lib/isTextNode.js");
+
+/*eslint-disable no-bitwise */
+
+/**
+ * Checks if a given DOM node contains or is another DOM node.
+ */
+function containsNode(outerNode, innerNode) {
+  if (!outerNode || !innerNode) {
+    return false;
+  } else if (outerNode === innerNode) {
+    return true;
+  } else if (isTextNode(outerNode)) {
+    return false;
+  } else if (isTextNode(innerNode)) {
+    return containsNode(outerNode, innerNode.parentNode);
+  } else if ('contains' in outerNode) {
+    return outerNode.contains(innerNode);
+  } else if (outerNode.compareDocumentPosition) {
+    return !!(outerNode.compareDocumentPosition(innerNode) & 16);
+  } else {
+    return false;
+  }
+}
+
+module.exports = containsNode;
 
 /***/ }),
 
@@ -273,6 +534,160 @@ module.exports = emptyObject;
 
 /***/ }),
 
+/***/ "./node_modules/fbjs/lib/focusNode.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+/**
+ * @param {DOMElement} node input/textarea to focus
+ */
+
+function focusNode(node) {
+  // IE8 can throw "Can't move focus to the control because it is invisible,
+  // not enabled, or of a type that does not accept the focus." for all kinds of
+  // reasons that are too expensive and fragile to test.
+  try {
+    node.focus();
+  } catch (e) {}
+}
+
+module.exports = focusNode;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/getActiveElement.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+/* eslint-disable fb-www/typeof-undefined */
+
+/**
+ * Same as document.activeElement but wraps in a try-catch block. In IE it is
+ * not safe to call document.activeElement if there is nothing focused.
+ *
+ * The activeElement will be null only if the document or document body is not
+ * yet defined.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
+ */
+function getActiveElement(doc) /*?DOMElement*/{
+  doc = doc || (typeof document !== 'undefined' ? document : undefined);
+  if (typeof doc === 'undefined') {
+    return null;
+  }
+  try {
+    return doc.activeElement || doc.body;
+  } catch (e) {
+    return doc.body;
+  }
+}
+
+module.exports = getActiveElement;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/hyphenate.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var _uppercasePattern = /([A-Z])/g;
+
+/**
+ * Hyphenates a camelcased string, for example:
+ *
+ *   > hyphenate('backgroundColor')
+ *   < "background-color"
+ *
+ * For CSS style names, use `hyphenateStyleName` instead which works properly
+ * with all vendor prefixes, including `ms`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function hyphenate(string) {
+  return string.replace(_uppercasePattern, '-$1').toLowerCase();
+}
+
+module.exports = hyphenate;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/hyphenateStyleName.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+
+
+var hyphenate = __webpack_require__("./node_modules/fbjs/lib/hyphenate.js");
+
+var msPattern = /^ms-/;
+
+/**
+ * Hyphenates a camelcased CSS property name, for example:
+ *
+ *   > hyphenateStyleName('backgroundColor')
+ *   < "background-color"
+ *   > hyphenateStyleName('MozTransition')
+ *   < "-moz-transition"
+ *   > hyphenateStyleName('msTransition')
+ *   < "-ms-transition"
+ *
+ * As Modernizr suggests (http://modernizr.com/docs/#prefixed), an `ms` prefix
+ * is converted to `-ms-`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function hyphenateStyleName(string) {
+  return hyphenate(string).replace(msPattern, '-ms-');
+}
+
+module.exports = hyphenateStyleName;
+
+/***/ }),
+
 /***/ "./node_modules/fbjs/lib/invariant.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -330,6 +745,136 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/isNode.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+/**
+ * @param {*} object The object to check.
+ * @return {boolean} Whether or not the object is a DOM node.
+ */
+function isNode(object) {
+  var doc = object ? object.ownerDocument || object : document;
+  var defaultView = doc.defaultView || window;
+  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
+}
+
+module.exports = isNode;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/isTextNode.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var isNode = __webpack_require__("./node_modules/fbjs/lib/isNode.js");
+
+/**
+ * @param {*} object The object to check.
+ * @return {boolean} Whether or not the object is a DOM text node.
+ */
+function isTextNode(object) {
+  return isNode(object) && object.nodeType == 3;
+}
+
+module.exports = isTextNode;
+
+/***/ }),
+
+/***/ "./node_modules/fbjs/lib/shallowEqual.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ * 
+ */
+
+/*eslint-disable no-self-compare */
+
+
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+/**
+ * inlined Object.is polyfill to avoid requiring consumers ship their own
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ */
+function is(x, y) {
+  // SameValue algorithm
+  if (x === y) {
+    // Steps 1-5, 7-10
+    // Steps 6.b-6.e: +0 != -0
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    // Step 6.a: NaN == NaN
+    return x !== x && y !== y;
+  }
+}
+
+/**
+ * Performs equality by iterating through keys on an object and returning false
+ * when any key has values which are not strictly equal between the arguments.
+ * Returns true when the values of all keys are strictly equal.
+ */
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) {
+    return true;
+  }
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  // Test for A's keys different from B.
+  for (var i = 0; i < keysA.length; i++) {
+    if (!hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+module.exports = shallowEqual;
 
 /***/ }),
 
@@ -6717,6 +7262,596 @@ module.exports = function isObject(val) {
 
 /***/ }),
 
+/***/ "./node_modules/lodash.isempty/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global, module) {/**
+ * lodash (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]',
+    mapTag = '[object Map]',
+    objectTag = '[object Object]',
+    promiseTag = '[object Promise]',
+    setTag = '[object Set]',
+    weakMapTag = '[object WeakMap]';
+
+var dataViewTag = '[object DataView]';
+
+/**
+ * Used to match `RegExp`
+ * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
+ */
+var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+
+/** Used to detect host constructors (Safari). */
+var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+/** Detect free variable `exports`. */
+var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
+
+/** Detect free variable `module`. */
+var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+
+/** Detect the popular CommonJS extension `module.exports`. */
+var moduleExports = freeModule && freeModule.exports === freeExports;
+
+/**
+ * Gets the value at `key` of `object`.
+ *
+ * @private
+ * @param {Object} [object] The object to query.
+ * @param {string} key The key of the property to get.
+ * @returns {*} Returns the property value.
+ */
+function getValue(object, key) {
+  return object == null ? undefined : object[key];
+}
+
+/**
+ * Checks if `value` is a host object in IE < 9.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
+ */
+function isHostObject(value) {
+  // Many host objects are `Object` objects that can coerce to strings
+  // despite having improperly defined `toString` methods.
+  var result = false;
+  if (value != null && typeof value.toString != 'function') {
+    try {
+      result = !!(value + '');
+    } catch (e) {}
+  }
+  return result;
+}
+
+/**
+ * Creates a unary function that invokes `func` with its argument transformed.
+ *
+ * @private
+ * @param {Function} func The function to wrap.
+ * @param {Function} transform The argument transform.
+ * @returns {Function} Returns the new function.
+ */
+function overArg(func, transform) {
+  return function(arg) {
+    return func(transform(arg));
+  };
+}
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    objectProto = Object.prototype;
+
+/** Used to detect overreaching core-js shims. */
+var coreJsData = root['__core-js_shared__'];
+
+/** Used to detect methods masquerading as native. */
+var maskSrcKey = (function() {
+  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
+  return uid ? ('Symbol(src)_1.' + uid) : '';
+}());
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/** Used to detect if a method is native. */
+var reIsNative = RegExp('^' +
+  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
+  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
+);
+
+/** Built-in value references. */
+var Buffer = moduleExports ? root.Buffer : undefined,
+    propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined,
+    nativeKeys = overArg(Object.keys, Object);
+
+/* Built-in method references that are verified to be native. */
+var DataView = getNative(root, 'DataView'),
+    Map = getNative(root, 'Map'),
+    Promise = getNative(root, 'Promise'),
+    Set = getNative(root, 'Set'),
+    WeakMap = getNative(root, 'WeakMap');
+
+/** Detect if properties shadowing those on `Object.prototype` are non-enumerable. */
+var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
+
+/** Used to detect maps, sets, and weakmaps. */
+var dataViewCtorString = toSource(DataView),
+    mapCtorString = toSource(Map),
+    promiseCtorString = toSource(Promise),
+    setCtorString = toSource(Set),
+    weakMapCtorString = toSource(WeakMap);
+
+/**
+ * The base implementation of `getTag`.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  return objectToString.call(value);
+}
+
+/**
+ * The base implementation of `_.isNative` without bad shim checks.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a native function,
+ *  else `false`.
+ */
+function baseIsNative(value) {
+  if (!isObject(value) || isMasked(value)) {
+    return false;
+  }
+  var pattern = (isFunction(value) || isHostObject(value)) ? reIsNative : reIsHostCtor;
+  return pattern.test(toSource(value));
+}
+
+/**
+ * Gets the native function at `key` of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {string} key The key of the method to get.
+ * @returns {*} Returns the function if it's native, else `undefined`.
+ */
+function getNative(object, key) {
+  var value = getValue(object, key);
+  return baseIsNative(value) ? value : undefined;
+}
+
+/**
+ * Gets the `toStringTag` of `value`.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+var getTag = baseGetTag;
+
+// Fallback for data views, maps, sets, and weak maps in IE 11,
+// for data views in Edge < 14, and promises in Node.js.
+if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
+    (Map && getTag(new Map) != mapTag) ||
+    (Promise && getTag(Promise.resolve()) != promiseTag) ||
+    (Set && getTag(new Set) != setTag) ||
+    (WeakMap && getTag(new WeakMap) != weakMapTag)) {
+  getTag = function(value) {
+    var result = objectToString.call(value),
+        Ctor = result == objectTag ? value.constructor : undefined,
+        ctorString = Ctor ? toSource(Ctor) : undefined;
+
+    if (ctorString) {
+      switch (ctorString) {
+        case dataViewCtorString: return dataViewTag;
+        case mapCtorString: return mapTag;
+        case promiseCtorString: return promiseTag;
+        case setCtorString: return setTag;
+        case weakMapCtorString: return weakMapTag;
+      }
+    }
+    return result;
+  };
+}
+
+/**
+ * Checks if `func` has its source masked.
+ *
+ * @private
+ * @param {Function} func The function to check.
+ * @returns {boolean} Returns `true` if `func` is masked, else `false`.
+ */
+function isMasked(func) {
+  return !!maskSrcKey && (maskSrcKey in func);
+}
+
+/**
+ * Checks if `value` is likely a prototype object.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+ */
+function isPrototype(value) {
+  var Ctor = value && value.constructor,
+      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
+
+  return value === proto;
+}
+
+/**
+ * Converts `func` to its source code.
+ *
+ * @private
+ * @param {Function} func The function to process.
+ * @returns {string} Returns the source code.
+ */
+function toSource(func) {
+  if (func != null) {
+    try {
+      return funcToString.call(func);
+    } catch (e) {}
+    try {
+      return (func + '');
+    } catch (e) {}
+  }
+  return '';
+}
+
+/**
+ * Checks if `value` is likely an `arguments` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArguments(function() { return arguments; }());
+ * // => true
+ *
+ * _.isArguments([1, 2, 3]);
+ * // => false
+ */
+function isArguments(value) {
+  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+  return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
+    (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
+}
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray = Array.isArray;
+
+/**
+ * Checks if `value` is array-like. A value is considered array-like if it's
+ * not a function and has a `value.length` that's an integer greater than or
+ * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+ * @example
+ *
+ * _.isArrayLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isArrayLike(document.body.children);
+ * // => true
+ *
+ * _.isArrayLike('abc');
+ * // => true
+ *
+ * _.isArrayLike(_.noop);
+ * // => false
+ */
+function isArrayLike(value) {
+  return value != null && isLength(value.length) && !isFunction(value);
+}
+
+/**
+ * This method is like `_.isArrayLike` except that it also checks if `value`
+ * is an object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array-like object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArrayLikeObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isArrayLikeObject(document.body.children);
+ * // => true
+ *
+ * _.isArrayLikeObject('abc');
+ * // => false
+ *
+ * _.isArrayLikeObject(_.noop);
+ * // => false
+ */
+function isArrayLikeObject(value) {
+  return isObjectLike(value) && isArrayLike(value);
+}
+
+/**
+ * Checks if `value` is a buffer.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
+ * @example
+ *
+ * _.isBuffer(new Buffer(2));
+ * // => true
+ *
+ * _.isBuffer(new Uint8Array(2));
+ * // => false
+ */
+var isBuffer = nativeIsBuffer || stubFalse;
+
+/**
+ * Checks if `value` is an empty object, collection, map, or set.
+ *
+ * Objects are considered empty if they have no own enumerable string keyed
+ * properties.
+ *
+ * Array-like values such as `arguments` objects, arrays, buffers, strings, or
+ * jQuery-like collections are considered empty if they have a `length` of `0`.
+ * Similarly, maps and sets are considered empty if they have a `size` of `0`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is empty, else `false`.
+ * @example
+ *
+ * _.isEmpty(null);
+ * // => true
+ *
+ * _.isEmpty(true);
+ * // => true
+ *
+ * _.isEmpty(1);
+ * // => true
+ *
+ * _.isEmpty([1, 2, 3]);
+ * // => false
+ *
+ * _.isEmpty({ 'a': 1 });
+ * // => false
+ */
+function isEmpty(value) {
+  if (isArrayLike(value) &&
+      (isArray(value) || typeof value == 'string' ||
+        typeof value.splice == 'function' || isBuffer(value) || isArguments(value))) {
+    return !value.length;
+  }
+  var tag = getTag(value);
+  if (tag == mapTag || tag == setTag) {
+    return !value.size;
+  }
+  if (nonEnumShadows || isPrototype(value)) {
+    return !nativeKeys(value).length;
+  }
+  for (var key in value) {
+    if (hasOwnProperty.call(value, key)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in Safari 8-9 which returns 'object' for typed array and other constructors.
+  var tag = isObject(value) ? objectToString.call(value) : '';
+  return tag == funcTag || tag == genTag;
+}
+
+/**
+ * Checks if `value` is a valid array-like length.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ * @example
+ *
+ * _.isLength(3);
+ * // => true
+ *
+ * _.isLength(Number.MIN_VALUE);
+ * // => false
+ *
+ * _.isLength(Infinity);
+ * // => false
+ *
+ * _.isLength('3');
+ * // => false
+ */
+function isLength(value) {
+  return typeof value == 'number' &&
+    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+/**
+ * This method returns `false`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.13.0
+ * @category Util
+ * @returns {boolean} Returns `false`.
+ * @example
+ *
+ * _.times(2, _.stubFalse);
+ * // => [false, false]
+ */
+function stubFalse() {
+  return false;
+}
+
+module.exports = isEmpty;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/global.js"), __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7483,6 +8618,433 @@ if (true) {
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
+
+
+/***/ }),
+
+/***/ "./node_modules/react-currency-input/lib/react-currency-input.es.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__("./node_modules/prop-types/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__("./node_modules/react/cjs/react.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom__ = __webpack_require__("./node_modules/react-dom/cjs/react-dom.development.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_dom__);
+
+
+
+
+Object.assign = Object.assign ||
+  function(target) {
+    var arguments$1 = arguments;
+
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments$1[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+
+function mask(value, precision, decimalSeparator, thousandSeparator, allowNegative, prefix, suffix){
+    if ( precision === void 0 ) precision = 2;
+    if ( decimalSeparator === void 0 ) decimalSeparator = '.';
+    if ( thousandSeparator === void 0 ) thousandSeparator = ',';
+    if ( allowNegative === void 0 ) allowNegative = false;
+    if ( prefix === void 0 ) prefix = '';
+    if ( suffix === void 0 ) suffix = '';
+
+    // provide some default values and arg validation.
+    if (precision < 0) { precision = 0; } // precision cannot be negative
+    if (precision > 20) { precision = 20; } // precision cannot be greater than 20
+    
+    if (value === null || value===undefined) {
+          return {
+              value: 0,
+              maskedValue: ''
+          };
+     }
+  
+    value = String(value); //if the given value is a Number, let's convert into String to manipulate that
+
+    if (value.length == 0) {
+        return {
+            value: 0,
+            maskedValue: ''
+        };
+    }
+
+
+    // extract digits. if no digits, fill in a zero.
+    var digits = value.match(/\d/g) || ['0'];
+    
+    var numberIsNegative = false;
+    if (allowNegative) {
+        var negativeSignCount = (value.match(/-/g) || []).length;
+        // number will be negative if we have an odd number of "-"
+        // ideally, we should only ever have 0, 1 or 2 (positive number, making a number negative
+        // and making a negative number positive, respectively)
+        numberIsNegative = negativeSignCount % 2 === 1;
+        
+        // if every digit in the array is '0', then the number should never be negative
+        var allDigitsAreZero = true;
+        for (var idx=0; idx < digits.length; idx += 1) {
+            if(digits[idx] !== '0') {
+                allDigitsAreZero = false;
+                break;
+            }
+        }
+        if (allDigitsAreZero) {
+            numberIsNegative = false;
+        }
+    }
+
+    // zero-pad a input
+    while (digits.length <= precision) { digits.unshift('0'); }
+
+    if (precision > 0) {
+        // add the decimal separator
+        digits.splice(digits.length - precision, 0, ".");
+    }
+
+    // clean up extraneous digits like leading zeros.
+    digits = Number(digits.join('')).toFixed(precision).split('');
+    var raw = Number(digits.join(''));
+
+    var decimalpos = digits.length - precision - 1;  // -1 needed to position the decimal separator before the digits.
+    if (precision > 0) {
+        // set the final decimal separator
+        digits[decimalpos] = decimalSeparator;
+    } else {
+        // when precision is 0, there is no decimal separator.
+        decimalpos = digits.length;
+    }
+
+    // add in any thousand separators
+    for (var x=decimalpos - 3; x > 0; x = x - 3) {
+        digits.splice(x, 0, thousandSeparator);
+    }
+
+    // if we have a prefix or suffix, add them in.
+    if (prefix.length > 0) { digits.unshift(prefix); }
+    if (suffix.length > 0) { digits.push(suffix); }
+
+    // if the number is negative, insert a "-" to
+    // the front of the array and negate the raw value
+    if (allowNegative && numberIsNegative) {
+        digits.unshift('-');
+        raw = -raw;
+    }
+
+    return {
+        value: raw,
+        maskedValue: digits.join('').trim()
+    };
+}
+
+// IE* parseFloat polyfill
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat#Polyfill
+Number.parseFloat = parseFloat;
+
+var CurrencyInput = (function (Component$$1) {
+    function CurrencyInput(props) {
+        Component$$1.call(this, props);
+        this.prepareProps = this.prepareProps.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleFocus = this.handleFocus.bind(this);
+        this.state = this.prepareProps(this.props);
+
+        this.inputSelectionStart = 1;
+        this.inputSelectionEnd = 1;
+    }
+
+    if ( Component$$1 ) CurrencyInput.__proto__ = Component$$1;
+    CurrencyInput.prototype = Object.create( Component$$1 && Component$$1.prototype );
+    CurrencyInput.prototype.constructor = CurrencyInput;
+
+
+    /**
+     * Exposes the current masked value.
+     *
+     * @returns {String}
+     */
+    CurrencyInput.prototype.getMaskedValue = function getMaskedValue () {
+        return this.state.maskedValue;
+    };
+
+
+    /**
+     * General function used to cleanup and define the final props used for rendering
+     * @returns {{ maskedValue: {String}, value: {Number}, customProps: {Object} }}
+     */
+    CurrencyInput.prototype.prepareProps = function prepareProps (props) {
+        var customProps = Object.assign({}, props); // babeljs converts to Object.assign, then polyfills.
+        delete customProps.onChange;
+        delete customProps.onChangeEvent;
+        delete customProps.value;
+        delete customProps.decimalSeparator;
+        delete customProps.thousandSeparator;
+        delete customProps.precision;
+        delete customProps.inputType;
+        delete customProps.allowNegative;
+        delete customProps.allowEmpty;
+        delete customProps.prefix;
+        delete customProps.suffix;
+        delete customProps.selectAllOnFocus;
+        delete customProps.autoFocus;
+
+        var initialValue = props.value;
+        if (initialValue === null) {
+            initialValue = props.allowEmpty? null : '';
+        }else{
+
+            if (typeof initialValue == 'string') {
+                // Some people, when confronted with a problem, think "I know, I'll use regular expressions."
+                // Now they have two problems.
+
+                // Strip out thousand separators, prefix, and suffix, etc.
+                if (props.thousandSeparator === "."){
+                    // special handle the . thousand separator
+                    initialValue = initialValue.replace(/\./g, '');
+                }
+
+                if (props.decimalSeparator != "."){
+                    // fix the decimal separator
+                    initialValue = initialValue.replace(new RegExp(props.decimalSeparator, 'g'), '.');
+                }
+
+                //Strip out anything that is not a digit, -, or decimal separator
+                initialValue = initialValue.replace(/[^0-9-.]/g, '');
+
+                // now we can parse.
+                initialValue = Number.parseFloat(initialValue);
+            }
+            initialValue = Number(initialValue).toLocaleString(undefined, {
+                style                : 'decimal',
+                minimumFractionDigits: props.precision,
+                maximumFractionDigits: props.precision
+            });
+
+        }
+
+        var ref = mask(
+            initialValue,
+            props.precision,
+            props.decimalSeparator,
+            props.thousandSeparator,
+            props.allowNegative,
+            props.prefix,
+            props.suffix
+        );
+        var maskedValue = ref.maskedValue;
+        var value = ref.value;
+
+        return { maskedValue: maskedValue, value: value, customProps: customProps };
+    };
+
+
+    /**
+     * Component lifecycle function.
+     * Invoked when a component is receiving new props. This method is not called for the initial render.
+     *
+     * @param nextProps
+     * @see https://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops
+     */
+    CurrencyInput.prototype.componentWillReceiveProps = function componentWillReceiveProps (nextProps) {
+        this.setState(this.prepareProps(nextProps));
+    };
+
+
+    /**
+     * Component lifecycle function.
+     * @returns {XML}
+     * @see https://facebook.github.io/react/docs/react-component.html#componentdidmount
+     */
+    CurrencyInput.prototype.componentDidMount = function componentDidMount (){
+        var node = __WEBPACK_IMPORTED_MODULE_2_react_dom___default.a.findDOMNode(this.theInput);
+        var selectionStart, selectionEnd;
+
+        if (this.props.autoFocus) {
+            this.theInput.focus();
+            selectionEnd = this.state.maskedValue.length - this.props.suffix.length;
+            selectionStart = selectionEnd;
+        } else {
+            selectionEnd = Math.min(node.selectionEnd, this.theInput.value.length - this.props.suffix.length);
+            selectionStart = Math.min(node.selectionStart, selectionEnd);
+        }
+
+        node.setSelectionRange(selectionStart, selectionEnd);
+    };
+
+
+    /**
+     * Component lifecycle function
+     * @returns {XML}
+     * @see https://facebook.github.io/react/docs/react-component.html#componentwillupdate
+     */
+    CurrencyInput.prototype.componentWillUpdate = function componentWillUpdate () {
+        var node = __WEBPACK_IMPORTED_MODULE_2_react_dom___default.a.findDOMNode(this.theInput);
+        this.inputSelectionStart = node.selectionStart;
+        this.inputSelectionEnd = node.selectionEnd;
+    };
+
+
+    /**
+     * Component lifecycle function.
+     * @returns {XML}
+     * @see https://facebook.github.io/react/docs/react-component.html#componentdidupdate
+     */
+    CurrencyInput.prototype.componentDidUpdate = function componentDidUpdate (prevProps, prevState){
+        var ref = this.props;
+        var decimalSeparator = ref.decimalSeparator;
+        var node = __WEBPACK_IMPORTED_MODULE_2_react_dom___default.a.findDOMNode(this.theInput);
+        var isNegative = (this.theInput.value.match(/-/g) || []).length % 2 === 1;
+        var minPos = this.props.prefix.length + (isNegative ? 1 : 0);
+        var selectionEnd = Math.max(minPos, Math.min(this.inputSelectionEnd, this.theInput.value.length - this.props.suffix.length));
+        var selectionStart = Math.max(minPos, Math.min(this.inputSelectionEnd, selectionEnd));
+
+        var regexEscapeRegex = /[-[\]{}()*+?.,\\^$|#\s]/g;
+        var separatorsRegex = new RegExp(decimalSeparator.replace(regexEscapeRegex, '\\$&') + '|' + this.props.thousandSeparator.replace(regexEscapeRegex, '\\$&'), 'g');
+        var currSeparatorCount = (this.state.maskedValue.match(separatorsRegex) || []).length;
+        var prevSeparatorCount = (prevState.maskedValue.match(separatorsRegex) || []).length;
+        var adjustment = Math.max(currSeparatorCount - prevSeparatorCount, 0);
+
+        selectionEnd = selectionEnd + adjustment;
+        selectionStart = selectionStart + adjustment;
+
+        var precision = Number(this.props.precision);
+
+        var baselength = this.props.suffix.length
+            + this.props.prefix.length
+            + (precision > 0 ? decimalSeparator.length : 0) // if precision is 0 there will be no decimal part
+            + precision
+            + 1; // This is to account for the default '0' value that comes before the decimal separator
+
+        if (this.state.maskedValue.length == baselength){
+            // if we are already at base length, position the cursor at the end.
+            selectionEnd = this.theInput.value.length - this.props.suffix.length;
+            selectionStart = selectionEnd;
+        }
+
+        node.setSelectionRange(selectionStart, selectionEnd);
+        this.inputSelectionStart = selectionStart;
+        this.inputSelectionEnd = selectionEnd;
+    };
+
+
+    /**
+     * onChange Event Handler
+     * @param event
+     */
+    CurrencyInput.prototype.handleChange = function handleChange (event) {
+        var this$1 = this;
+
+        event.preventDefault();
+        var ref = mask(
+            event.target.value,
+            this.props.precision,
+            this.props.decimalSeparator,
+            this.props.thousandSeparator,
+            this.props.allowNegative,
+            this.props.prefix,
+            this.props.suffix
+        );
+        var maskedValue = ref.maskedValue;
+        var value = ref.value;
+
+        event.persist();  // fixes issue #23
+
+        this.setState({ maskedValue: maskedValue, value: value }, function () {
+            this$1.props.onChange(maskedValue, value, event);
+            this$1.props.onChangeEvent(event, maskedValue, value);
+        });
+    };
+
+
+    /**
+     * onFocus Event Handler
+     * @param event
+     */
+    CurrencyInput.prototype.handleFocus = function handleFocus (event) {
+        if (!this.theInput) { return; }
+
+        //Whenever we receive focus check to see if the position is before the suffix, if not, move it.
+        var selectionEnd = this.theInput.value.length - this.props.suffix.length;
+        var isNegative = (this.theInput.value.match(/-/g) || []).length % 2 === 1;
+        var selectionStart = this.props.prefix.length + (isNegative ? 1 : 0);
+        this.props.selectAllOnFocus && event.target.setSelectionRange(selectionStart, selectionEnd);
+        this.inputSelectionStart = selectionStart;
+        this.inputSelectionEnd = selectionEnd;
+    };
+
+
+    CurrencyInput.prototype.handleBlur = function handleBlur (event) {
+        this.inputSelectionStart = 0;
+        this.inputSelectionEnd = 0;
+    };
+
+
+    /**
+     * Component lifecycle function.
+     * @returns {XML}
+     * @see https://facebook.github.io/react/docs/component-specs.html#render
+     */
+    CurrencyInput.prototype.render = function render () {
+        var this$1 = this;
+
+        return (
+            __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement( 'input', Object.assign({},
+                { ref: function (input) { this$1.theInput = input; }, type: this.props.inputType, value: this.state.maskedValue, onChange: this.handleChange, onFocus: this.handleFocus, onMouseUp: this.handleFocus }, this.state.customProps))
+        )
+    };
+
+    return CurrencyInput;
+}(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]));
+
+
+
+/**
+ * Prop validation.
+ * @see https://facebook.github.io/react/docs/component-specs.html#proptypes
+ */
+
+CurrencyInput.propTypes = {
+    onChange: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.func,
+    value: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.number, __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.string]),
+    decimalSeparator: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.string,
+    thousandSeparator: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.string,
+    precision: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.number, __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.string]),
+    inputType: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.string,
+    allowNegative: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.bool,
+    allowEmpty: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.bool,
+    prefix: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.string,
+    suffix: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.string,
+    selectAllOnFocus: __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.bool
+};
+
+
+CurrencyInput.defaultProps = {
+    onChange: function(maskValue, value, event) {/*no-op*/},
+    onChangeEvent: function(event, maskValue, value) {/*no-op*/},
+    autoFocus: false,
+    value: '0',
+    decimalSeparator: '.',
+    thousandSeparator: ',',
+    precision: '2',
+    inputType: 'text',
+    allowNegative: false,
+    prefix: '',
+    suffix: '',
+    selectAllOnFocus: false
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (CurrencyInput);
+//# sourceMappingURL=react-currency-input.es.js.map
 
 
 /***/ }),
@@ -12100,6 +13662,35 @@ module.exports = function(originalModule) {
 		});
 		Object.defineProperty(module, "exports", {
 			enumerable: true,
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/module.js":
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
 		});
 		module.webpackPolyfill = 1;
 	}

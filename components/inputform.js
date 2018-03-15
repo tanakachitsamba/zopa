@@ -1,6 +1,8 @@
 // @flow
 import * as React from 'react'
 import { Formik } from 'formik'
+import isEmpty from 'lodash.isempty'
+import CurrencyInput from 'react-currency-input'
 
 type State = {
 	name: string,
@@ -9,39 +11,51 @@ type State = {
 }
 
 type Errors = {
-    [x: string]: string
+	[x: string]: string
 }
 
 type FormProps = {
-    values: State,
-    errors: Errors,
-    handleChange: (e: React.ChangeEvent<any>) => void,
-    handleBlur: (e: any) => void, 
-    handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
-    isSubmitting: boolean
+	values: State,
+	errors: Errors,
+	handleChange: (e: React.ChangeEvent<any>) => void,
+	handleBlur: (e: any) => void,
+	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void,
+	isSubmitting: boolean
 }
 
 export default class Form extends React.Component<State> {
-    state = {
-        name: '', 
-        email: '', 
-        amount: 0, 
-    }
+	state = {
+		name: '',
+		email: '',
+		amount: 0
+	}
 
 	validate = (values: State): Errors => {
 		let errors: Errors = {}
-		if (!values.email) {
-			errors.email = 'Required'
+
+		if (isEmpty(values.email)) {
+			errors.email = 'Please enter an email address'
 		} else if (
 			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
 		) {
 			errors.email = 'Invalid email address'
 		}
+
+		if (isEmpty(values.name)) {
+			errors.name = 'Please enter a name'
+		} else if (!/^[A-Za-z ]+$/.test(values.name)) {
+			errors.name = 'Please enter a valid name'
+        }
+        
+        if (values.amount === 0.00) {
+            errors.amount = 'please enter an amont'
+        }
+
 		return errors
 	}
 
 	onSubmit = (setSubmitting, setErrors): void => {
-		(errors: Errors): void => {
+		;(errors: Errors): void => {
 			setSubmitting(false)
 			setErrors(errors)
 		}
@@ -50,7 +64,7 @@ export default class Form extends React.Component<State> {
 	render() {
 		return (
 			<Formik
-				initialValues={{...this.state}}
+				initialValues={{ ...this.state }}
 				validate={this.validate}
 				onSubmit={this.onSubmit}>
 				{({
@@ -59,8 +73,8 @@ export default class Form extends React.Component<State> {
 					handleChange,
 					handleBlur,
 					handleSubmit,
-                    isSubmitting,
-                    touched
+					isSubmitting,
+					touched
 				}: FormProps) => (
 					<form onSubmit={handleSubmit}>
 						<input
@@ -71,7 +85,8 @@ export default class Form extends React.Component<State> {
 							value={values.name}
 							placeholder="Jane Smith"
 						/>
-						{touched.name && errors.name && <div>{errors.name}</div>}
+						{touched.name &&
+							errors.name && <div>{errors.name}</div>}
 
 						<input
 							type="email"
@@ -81,20 +96,21 @@ export default class Form extends React.Component<State> {
 							value={values.email}
 							placeholder="alex.smith@zopa.com"
 						/>
-						{touched.email && errors.email && <div>{errors.email}</div>}
+						{touched.email &&
+							errors.email && <div>{errors.email}</div>}
 
-						<input
-							type="number"
+						<CurrencyInput
 							name="amount"
-							onChange={handleChange}
-							onBlur={handleBlur}
 							value={values.amount}
-							placeholder="£ 1300"
+							onChangeEvent={handleChange}
+                            onBlur={handleBlur}
+                            prefix="£ "
 						/>
-						{touched.amount && errors.amount && <div>{errors.amount}</div>}
+						{touched.amount &&
+							errors.amount && <div>{errors.amount}</div>}
 
 						<button type="submit" disabled={isSubmitting}>
-							Submit
+							Send
 						</button>
 					</form>
 				)}
