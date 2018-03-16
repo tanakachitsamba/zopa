@@ -4,15 +4,16 @@ import styled, { css } from 'styled-components'
 // media query mixin 
 export const media = {
     ipad: (...args) => css`
-      @media (max-width: 1020px) {
-        ${ css(...args) }
-      }
+        @media 
+        (-webkit-min-device-pixel-ratio: 2), 
+        (min-resolution: 192dpi) { 
+            ${css(...args)}
+        }
+    `, 
+
+    retina: (...args) => css`
+        @media only screen (max-device-width: 767px)  {
+            ${css(...args)}
+        }
     `
 }
-  
-// div component with css props for faster styling 
-export const Div = styled.div`
-    ${media.ipad`
-        ${({ipad}) => css`${ipad}`}
-    `}
-`

@@ -2,8 +2,6 @@
 import * as React from 'react'
 import { Formik } from 'formik'
 import isEmpty from 'lodash.isempty'
-import CurrencyInput from 'react-currency-input'
-import styled from 'styled-components'
 import FormStyles from './styles'
 
 type State = {
@@ -27,7 +25,7 @@ export default class InputForm extends React.Component<State> {
 	state = {
 		name: '',
 		email: '',
-		amount: '£ 0' // would be double decimal but not currently needed.
+		amount: '' // would be double decimal but not currently needed.
 	}
 
 	validate = (values: State): Errors => {
@@ -55,7 +53,7 @@ export default class InputForm extends React.Component<State> {
 	}
 
 	onSubmit = (setSubmitting, setErrors): void => {
-		;(errors: Errors): void => {
+		(errors: Errors): void => {
 			setSubmitting(false)
 			setErrors(errors)
 		}
@@ -67,13 +65,13 @@ export default class InputForm extends React.Component<State> {
 				initialValues={{ ...this.state }}
 				validate={this.validate}
 				onSubmit={this.onSubmit}
-				component={Form}
+				component={InnerForm}
 			/>
 		)
 	}
 }
 
-const Form = ({
+const InnerForm = ({
 	values,
 	errors,
 	handleChange,
@@ -81,7 +79,6 @@ const Form = ({
 	handleSubmit,
 	isSubmitting,
 	touched,
-	...props
 }: FormProps) => (
 	<FormStyles.Form onSubmit={handleSubmit}>
 		<FormStyles.Label topLabel>Name</FormStyles.Label>
