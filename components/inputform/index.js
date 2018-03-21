@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { Formik } from 'formik'
 import isEmpty from 'lodash.isempty'
-import FormStyles from './styles'
+import Form from './styles'
 
 type State = {
 	[x: string]: string
@@ -25,7 +25,7 @@ export default class InputForm extends React.Component<State> {
 	state = {
 		name: '',
 		email: '',
-		amount: '' // would be double decimal but not currently needed.
+		amount: ''
 	}
 
 	validate = (values: State): Errors => {
@@ -53,7 +53,7 @@ export default class InputForm extends React.Component<State> {
 	}
 
 	onSubmit = (setSubmitting, setErrors): void => {
-		(errors: Errors): void => {
+		;(errors: Errors): void => {
 			setSubmitting(false)
 			setErrors(errors)
 		}
@@ -78,11 +78,11 @@ const InnerForm = ({
 	handleBlur,
 	handleSubmit,
 	isSubmitting,
-	touched,
+	touched
 }: FormProps) => (
-	<FormStyles.Form onSubmit={handleSubmit}>
-		<FormStyles.Label topLabel>Name</FormStyles.Label>
-		<FormStyles.Input
+	<Form onSubmit={handleSubmit}>
+		<Form.Label topLabel>Name</Form.Label>
+		<Form.Input
 			label="name"
 			name="name"
 			onChange={handleChange}
@@ -92,10 +92,10 @@ const InnerForm = ({
 			touched={touched.name}
 		/>
 		{touched.name &&
-			errors.name && <FormStyles.ErrorText>{errors.name}</FormStyles.ErrorText>}
+			errors.name && <Form.ErrorText>{errors.name}</Form.ErrorText>}
 
-		<FormStyles.Label>Email</FormStyles.Label>
-		<FormStyles.Input
+		<Form.Label>Email</Form.Label>
+		<Form.Input
 			label="email"
 			name="email"
 			onChange={handleChange}
@@ -105,10 +105,10 @@ const InnerForm = ({
 			touched={touched.email}
 		/>
 		{touched.email &&
-			errors.email && <FormStyles.ErrorText>{errors.email}</FormStyles.ErrorText>}
+			errors.email && <Form.ErrorText>{errors.email}</Form.ErrorText>}
 
-		<FormStyles.Label>Amount</FormStyles.Label>
-		<FormStyles.CurrencyInput 
+		<Form.Label>Amount</Form.Label>
+		<Form.CurrencyInput
 			name="amount"
 			value={values.amount}
 			onChangeEvent={handleChange}
@@ -119,10 +119,10 @@ const InnerForm = ({
 			touched={touched.amount}
 		/>
 		{touched.amount &&
-			errors.amount && <FormStyles.ErrorText>{errors.amount}</FormStyles.ErrorText>}
+			errors.amount && <Form.ErrorText>{errors.amount}</Form.ErrorText>}
 
-		<FormStyles.Button type="submit" disabled={isSubmitting}>
+		<Form.Button type="submit" disabled={isSubmitting}>
 			Send
-		</FormStyles.Button>
-	</FormStyles.Form>
+		</Form.Button>
+	</Form>
 )

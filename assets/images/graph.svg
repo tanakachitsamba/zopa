@@ -1,0 +1,22 @@
+<svg width="195" height="195" viewBox="0 0 195 195" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>graph</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="matrix(3 0 0 3 -2634 -909)">
+<g id="graph">
+<g id="bg box">
+<use xlink:href="#path0_fill" transform="matrix(1 1.22465e-16 1.22465e-16 -1 879 367)" fill="#FFFFFF"/>
+</g>
+<g id="Oval">
+<use xlink:href="#path1_stroke" transform="matrix(1 1.22465e-16 1.22465e-16 -1 887 359)" fill="#EAEAEE"/>
+</g>
+<g id="Oval Copy">
+<use xlink:href="#path2_stroke" transform="matrix(1 1.22465e-16 1.22465e-16 -1 886.956 359.007)" fill="#FFB428"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 0 0L 64 0L 64 64L 0 64L 0 0Z"/>
+<path id="path1_stroke" d="M 24 56C 41.6731 56 56 41.6731 56 24L 40 24C 40 32.8366 32.8366 40 24 40L 24 56ZM 56 24C 56 6.32689 41.6731 -8 24 -8L 24 8C 32.8366 8 40 15.1634 40 24L 56 24ZM 24 -8C 6.32689 -8 -8 6.32689 -8 24L 8 24C 8 15.1634 15.1634 8 24 8L 24 -8ZM -8 24C -8 41.6731 6.32689 56 24 56L 24 40C 15.1634 40 8 32.8366 8 24L -8 24Z"/>
+<path id="path2_stroke" d="M 24.0439 56.0068C 41.717 56.0068 56.0439 41.6799 56.0439 24.0068L 40.0439 24.0068C 40.0439 32.8434 32.8805 40.0068 24.0439 40.0068L 24.0439 56.0068ZM 56.0439 24.0068C 56.0439 6.39204 42.0509 -8 24.0218 -8L 24.0218 8C 33.0981 8 40.0439 15.112 40.0439 24.0068L 56.0439 24.0068ZM 24.0218 -8C 5.89232 -8 -8.33851 7.67623 -7.99387 24.1739L 8.00264 23.8398C 7.84138 16.1203 15.0457 8 24.0218 8L 24.0218 -8Z"/>
+</defs>
+</svg>

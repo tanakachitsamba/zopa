@@ -101,90 +101,90 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var MyDocument = function (_Document) {
-  _inherits(MyDocument, _Document);
+	_inherits(MyDocument, _Document);
 
-  function MyDocument() {
-    _classCallCheck(this, MyDocument);
+	function MyDocument() {
+		_classCallCheck(this, MyDocument);
 
-    return _possibleConstructorReturn(this, (MyDocument.__proto__ || Object.getPrototypeOf(MyDocument)).apply(this, arguments));
-  }
+		return _possibleConstructorReturn(this, (MyDocument.__proto__ || Object.getPrototypeOf(MyDocument)).apply(this, arguments));
+	}
 
-  _createClass(MyDocument, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'html',
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 14
-          }
-        },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_next_document__["Head"],
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 15
-            }
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'title',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 16
-              }
-            },
-            'My page'
-          ),
-          this.props.styleTags
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'body',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 19
-            }
-          },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["Main"], {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 20
-            }
-          }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["NextScript"], {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          })
-        )
-      );
-    }
-  }], [{
-    key: 'getInitialProps',
-    value: function getInitialProps(_ref) {
-      var renderPage = _ref.renderPage;
+	_createClass(MyDocument, [{
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'html',
+				{
+					__source: {
+						fileName: _jsxFileName,
+						lineNumber: 16
+					}
+				},
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					__WEBPACK_IMPORTED_MODULE_1_next_document__["Head"],
+					{
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 17
+						}
+					},
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'title',
+						{
+							__source: {
+								fileName: _jsxFileName,
+								lineNumber: 18
+							}
+						},
+						'Zopa'
+					),
+					this.props.styleTags
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'body',
+					{
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 21
+						}
+					},
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["Main"], {
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 22
+						}
+					}),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["NextScript"], {
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 23
+						}
+					})
+				)
+			);
+		}
+	}], [{
+		key: 'getInitialProps',
+		value: function getInitialProps(_ref) {
+			var renderPage = _ref.renderPage;
 
-      var sheet = new __WEBPACK_IMPORTED_MODULE_2_styled_components__["ServerStyleSheet"]();
-      var page = renderPage(function (App) {
-        return function (props) {
-          return sheet.collectStyles(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, _extends({}, props, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 7
-            }
-          })));
-        };
-      });
-      var styleTags = sheet.getStyleElement();
-      return _extends({}, page, { styleTags: styleTags });
-    }
-  }]);
+			var sheet = new __WEBPACK_IMPORTED_MODULE_2_styled_components__["ServerStyleSheet"]();
+			var page = renderPage(function (App) {
+				return function (props) {
+					return sheet.collectStyles(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, _extends({}, props, {
+						__source: {
+							fileName: _jsxFileName,
+							lineNumber: 8
+						}
+					})));
+				};
+			});
+			var styleTags = sheet.getStyleElement();
+			return _extends({}, page, { styleTags: styleTags });
+		}
+	}]);
 
-  return MyDocument;
+	return MyDocument;
 }(__WEBPACK_IMPORTED_MODULE_1_next_document___default.a);
 
 /* harmony default export */ __webpack_exports__["default"] = (MyDocument);
